@@ -5,7 +5,7 @@
         <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#staticModal">Create</button>
     </div>
 </div>
-  
+
 <!-- Modal -->
 <div class="modal fade" id="staticModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -15,28 +15,28 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form>
+            <form [formGroup]="formValue">
                 <div class="form-group">
                     <label class="form-label">Name</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" formControlName="Name">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Age</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" formControlName="Age">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Salary</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" formControlName="Salary">
                 </div>
                 <div class="form-group">
                     <label class="form-label">City</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" formControlName="City">
                 </div>
             </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Insert</button>
+          <button type="button" class="btn btn-primary" (click)="InsertEmployee()">Insert</button>
         </div>
       </div>
     </div>
