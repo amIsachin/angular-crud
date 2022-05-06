@@ -6,6 +6,32 @@
     </div>
 </div>
 
+<div class="container mt-5">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Salary</th>
+                <th>City</th>
+                <th>Task</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of EmployeeObject">
+                <td>{{emp.Name}}</td>
+                <td>{{emp.Age}}</td>
+                <td>{{emp.Salary}}</td>
+                <td>{{emp.City}}</td>
+                <td>
+                    <button class="btn btn-primary">Edit</button> |
+                    <button class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 <!-- Modal -->
 <div class="modal fade" id="staticModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -35,7 +61,7 @@
             </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancel">Close</button>
           <button type="button" class="btn btn-primary" (click)="InsertEmployee()">Insert</button>
         </div>
       </div>

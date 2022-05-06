@@ -11,6 +11,7 @@ import { EmployeeEntity } from './EmployeeEntity';
 export class EmployeeComponent implements OnInit {
   formValue!:FormGroup;
   EmployeeEnity: EmployeeEntity = new EmployeeEntity();
+  EmployeeObject!:any;
   constructor(private formBuilder: FormBuilder, private EmployeeService: EmployeeService) {
   }
 
@@ -21,6 +22,7 @@ export class EmployeeComponent implements OnInit {
       Salary:[''],
       City:['']
     })
+    this.GetAllEmployee();
   }
 
   InsertEmployee(){
@@ -31,6 +33,19 @@ export class EmployeeComponent implements OnInit {
 
     this.EmployeeService.InsertStudent(this.EmployeeEnity).subscribe(response=>{
       alert('Employee has been Inserted successfully');
+      this.GetAllEmployee();
+      this.formValue.reset();
+      let ref=document.getElementById('cancel');
+      ref?.click();
+    },
+    error=>{
+      alert('Oops something went wrong');
+    })
+  }
+
+  GetAllEmployee(){
+    this.EmployeeService.GetAllEmployees().subscribe(response=>{
+      this.EmployeeObject = response;
     },
     error=>{
       alert('Oops something went wrong');

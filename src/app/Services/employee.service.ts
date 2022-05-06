@@ -14,4 +14,10 @@ export class EmployeeService {
       return response;
     }))
   }
+
+  GetAllEmployees(){
+    return this.http.get<any>("http://localhost:3000/Employee").pipe(map((response)=>{
+      return response;
+    }))
+  }
 }
