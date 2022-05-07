@@ -52,4 +52,30 @@ export class EmployeeComponent implements OnInit {
     })
   }
 
+  OnEdit(employeeEntity: any){
+    this.EmployeeEnity.ID = employeeEntity.id;
+    this.formValue.controls['Name'].setValue(employeeEntity.Name);
+    this.formValue.controls['Age'].setValue(employeeEntity.Age);
+    this.formValue.controls['Salary'].setValue(employeeEntity.Salary);
+    this.formValue.controls['City'].setValue(employeeEntity.City);
+  }
+
+  UpdateEmployee(){
+    this.EmployeeEnity.Name = this.formValue.value.Name;
+    this.EmployeeEnity.Age = this.formValue.value.Age;
+    this.EmployeeEnity.Salary = this.formValue.value.Salary;
+    this.EmployeeEnity.City = this.formValue.value.City;
+
+    this.EmployeeService.UpdateEmployee(this.EmployeeEnity.ID, this.EmployeeEnity).subscribe(response=>{
+      alert('Record has been updated successfully');
+      let ref=document.getElementById('cancel');
+      ref?.click();
+      this.formValue.reset();
+      this.GetAllEmployee();
+    },
+    error=>{
+      alert('Oops something went wrong')
+    })
+  }
+
 }

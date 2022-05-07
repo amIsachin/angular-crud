@@ -1,9 +1,12 @@
 {
   "Employee": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "ID": 1,
+      "Name": "check",
+      "Age": "2",
+      "Salary": "2",
+      "City": "Hyderabad",
+      "id": 1
     },
     {
       "Name": "sachin mehra",

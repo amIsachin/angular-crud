@@ -24,7 +24,7 @@
                 <td>{{emp.Salary}}</td>
                 <td>{{emp.City}}</td>
                 <td>
-                    <button class="btn btn-primary">Edit</button> |
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticModal" (click)="OnEdit(emp)">Edit</button> |
                     <button class="btn btn-danger">Delete</button>
                 </td>
             </tr>
@@ -63,6 +63,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancel">Close</button>
           <button type="button" class="btn btn-primary" (click)="InsertEmployee()">Insert</button>
+          <button type="button" class="btn btn-primary" (click)="UpdateEmployee()">Update</button>
         </div>
       </div>
     </div>

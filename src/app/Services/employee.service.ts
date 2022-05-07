@@ -20,4 +20,10 @@ export class EmployeeService {
       return response;
     }))
   }
+
+  UpdateEmployee(id:number, employeeEntity: any){
+    return this.http.put<any>("http://localhost:3000/Employee/"+id,employeeEntity).pipe(map((response)=>{
+      return response;
+    }))
+  }
 }
