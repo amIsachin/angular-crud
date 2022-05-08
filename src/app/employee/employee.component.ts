@@ -12,6 +12,8 @@ export class EmployeeComponent implements OnInit {
   formValue!:FormGroup;
   EmployeeEnity: EmployeeEntity = new EmployeeEntity();
   EmployeeObject!:any;
+  showUpdate!:boolean;
+  showAdd!:boolean;
   constructor(private formBuilder: FormBuilder, private EmployeeService: EmployeeService) {
   }
 
@@ -23,6 +25,12 @@ export class EmployeeComponent implements OnInit {
       City:['']
     })
     this.GetAllEmployee();
+  }
+
+  ClickShow(){
+    this.showAdd=true;
+    this.showUpdate=false;
+    this.formValue.reset();
   }
 
   InsertEmployee(){
@@ -53,6 +61,8 @@ export class EmployeeComponent implements OnInit {
   }
 
   OnEdit(employeeEntity: any){
+    this.showAdd=false;
+    this.showUpdate=true;
     this.EmployeeEnity.ID = employeeEntity.id;
     this.formValue.controls['Name'].setValue(employeeEntity.Name);
     this.formValue.controls['Age'].setValue(employeeEntity.Age);
@@ -75,6 +85,16 @@ export class EmployeeComponent implements OnInit {
     },
     error=>{
       alert('Oops something went wrong')
+    })
+  }
+
+  DeleteEmployee(id:number){
+    this.EmployeeService.DeleteEmployee(id).subscribe(response=>{
+      alert('Employee Deleted successfully');
+      this.GetAllEmployee();
+    },
+    error=>{
+      alert('Oops something went wrong');
     })
   }
 

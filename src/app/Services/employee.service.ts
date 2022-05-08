@@ -26,4 +26,10 @@ export class EmployeeService {
       return response;
     }))
   }
+
+  DeleteEmployee(id:number){
+    return this.http.delete<any>("http://localhost:3000/Employee/"+id).pipe(map((response)=>{
+      return response;
+    }))
+  }
 }

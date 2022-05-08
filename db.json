@@ -1,14 +1,6 @@
 {
   "Employee": [
     {
-      "ID": 1,
-      "Name": "check",
-      "Age": "2",
-      "Salary": "2",
-      "City": "Hyderabad",
-      "id": 1
-    },
-    {
       "Name": "sachin mehra",
       "Age": "23",
       "Salary": "32",
@@ -37,7 +29,8 @@
       "id": 5
     },
     {
-      "Name": "sachin mehra Updated",
+      "ID": 6,
+      "Name": "sachin mehra Updateddasf",
       "Age": "234",
       "Salary": "435",
       "City": "new Delhi",

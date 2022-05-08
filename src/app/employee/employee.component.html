@@ -2,7 +2,7 @@
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username with two button addons">
         <button class="btn btn-outline-secondary" type="button">Search</button>
-        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#staticModal">Create</button>
+        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#staticModal" (click)="ClickShow()">Create</button>
     </div>
 </div>
 
@@ -25,7 +25,7 @@
                 <td>{{emp.City}}</td>
                 <td>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticModal" (click)="OnEdit(emp)">Edit</button> |
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-danger" (click)="DeleteEmployee(emp.id)">Delete</button>
                 </td>
             </tr>
         </tbody>
@@ -62,8 +62,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancel">Close</button>
-          <button type="button" class="btn btn-primary" (click)="InsertEmployee()">Insert</button>
-          <button type="button" class="btn btn-primary" (click)="UpdateEmployee()">Update</button>
+          <button type="button" class="btn btn-primary" *ngIf="showAdd" (click)="InsertEmployee()">Insert</button>
+          <button type="button" class="btn btn-primary" *ngIf="showUpdate" (click)="UpdateEmployee()">Update</button>
         </div>
       </div>
     </div>
